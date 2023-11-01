@@ -19,17 +19,22 @@ function UserFetcher() {
         <div>
             <input 
                 type="text" 
-                placeholder="Enter User ID" 
+                placeholder="Enter User Name" 
                 value={userId} 
                 onChange={(e) => setUserId(e.target.value)}
+                onKeyDown={(e) => {
+                    if(e.key = 'Enter') {
+                        fetchUser();    
+                    }
+                    }
+                }
             />
             <button onClick={fetchUser}>Fetch User</button>
             {user && (
                 <div>
                     <h3>User Details:</h3>
-                    {/* 예시로 ID와 Name을 출력하였으나, 실제 UserModel 구조에 따라 조정이 필요합니다. */}
-                    <p>ID: {user.id}</p>
                     <p>Name: {user.name}</p>
+                    <p>ID: {user.id}</p>
                     <p>Birth: {user.byear}</p>
                 </div>
             )}
