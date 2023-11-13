@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -51,11 +52,15 @@ module.exports = {
     static: path.join(__dirname, 'app'),
     host: 'localhost',
     port: 3000,
-    hot: true
+    hot: true,
+    historyApiFallback: true, 
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './app/index.html'
+    }),
+    new Dotenv({
+      path: './.env.dev'
     })
   ]
 };

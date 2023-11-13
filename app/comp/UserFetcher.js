@@ -7,7 +7,8 @@ function UserFetcher() {
 
     const fetchUser = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/user/${userId}`);
+            const apiUrl = process.env.REACT_APP_API_URL;
+            const response = await axios.get(`${apiUrl}/user/${userId}`);
             setUser(response.data);
         } catch (error) {
             console.error("Error fetching user:", error);
@@ -23,7 +24,7 @@ function UserFetcher() {
                 value={userId} 
                 onChange={(e) => setUserId(e.target.value)}
                 onKeyDown={(e) => {
-                    if(e.key = 'Enter') {
+                    if(e.key === 'Enter') {
                         fetchUser();    
                     }
                     }

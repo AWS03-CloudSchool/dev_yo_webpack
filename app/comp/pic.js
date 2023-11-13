@@ -3,7 +3,7 @@ import '../styles/pic.scss'
 const Pic = () => {
     return(
     <div className="button button--skoll">
-      <img draggable="false" src="https://avatars.githubusercontent.com/u/68275740?v=4" alt="Profile Picture" />
+      <img src="https://i.giphy.com/media/v2u5zJXfa4jW3i7JWf/200w.gif" onerror="this.onerror=null;this.src='https://i.giphy.com/v2u5zJXfa4jW3i7JWf.gif';" alt="" />
     </div>
     );
 }
