@@ -7,8 +7,8 @@ function UserFetcher() {
 
     const fetchUser = async () => {
         try {
-            const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/user/${userId}`);
+            const apiUrl = '/api/user/' + userId;
+            const response = await axios.get(apiUrl);
             setUser(response.data);
         } catch (error) {
             console.error("Error fetching user:", error);

@@ -1,23 +1,21 @@
-FROM node:lts-slim as build-stage
+# Node.js 이미지를 사용합니다. 여기서는 LTS 버전을 사용하겠습니다.
+FROM node:lts as production-stage
 
-# 작업 디렉토리 생성 및 설정
-WORKDIR /usr/src/app
+# 작업 디렉터리를 설정합니다.
+WORKDIR /app
 
-# package.json과 package-lock.json을 작업 디렉토리로 복사
+# 애플리케이션 파일을 컨테이너로 복사합니다.
+# package.json과 package-lock.json 파일을 먼저 복사합니다.
 COPY package*.json ./
 
-# 의존성 설치
+# 필요한 Node 패키지를 설치합니다.
 RUN npm install
 
-COPY ./ ./
-RUN npm run build
+# 나머지 애플리케이션 소스 코드를 복사합니다.
+COPY . .
 
-# Nginx 이미지를 사용하여 서빙 단계를 수행합니다.
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /usr/src/app/dist /usr/share/nginx/html
-
-# 기본 Nginx 설정을 사용하거나, 필요에 따라 Nginx 설정을 복사합니다.
-# COPY nginx.conf /etc/nginx/nginx.conf
-
+# 애플리케이션이 사용할 포트를 지정합니다. 예를 들어 80 포트를 사용한다고 가정합니다.
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+
+# 애플리케이션을 시작합니다.
+CMD ["node", "./server.js"]
