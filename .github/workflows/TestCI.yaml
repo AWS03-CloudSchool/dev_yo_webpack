@@ -1,8 +1,7 @@
 name: TestCI
-
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths-ignore:
      - '.gitignore'
      - '.dockerignore'
@@ -10,8 +9,8 @@ on:
 #    paths:
 #      - '**.py'
   pull_request:
-    branches: [ master ]
-    
+    branches: [ main ]
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -25,8 +24,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-northeast-2
 
     - name: Login to Amazon ECR
