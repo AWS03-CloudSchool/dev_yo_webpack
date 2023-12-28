@@ -66,13 +66,12 @@ jobs:
         env:
           IMAGE_TAG: ${{ needs.ci.outputs.IMAGE_TAG }}
         with:
-          cmd: yq eval -i '.image.tag = env(IMAGE_TAG)' 'demo/values.yaml'
+          cmd: yq eval -i '.image.tag = env(IMAGE_TAG)' 'values.yaml'
 
       - name: Commit helm chart changes
         env:
           IMAGE_TAG: ${{ needs.ci.outputs.IMAGE_TAG }}
         run: |
-          cd demo
           git config --global user.email "rnjsduddh05@gmail.com"
           git config --global user.name "Kwonyoungoh"
 
