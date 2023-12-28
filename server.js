@@ -31,7 +31,7 @@ app.get('*', (req, res) => {
 });
 
 // 서버를 시작합니다.
-const PORT = 80;
+const PORT = 8050;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -15,7 +15,7 @@ RUN npm install
 COPY . .
 
 # 애플리케이션이 사용할 포트를 지정합니다. 예를 들어 80 포트를 사용한다고 가정합니다.
-EXPOSE 80
+EXPOSE 8050
 
 # 애플리케이션을 시작합니다.
 CMD ["node", "./server.js"]
