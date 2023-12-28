@@ -12,7 +12,7 @@ const App = () => {
       <div>
         <nav>
           <ul>
-            <li><Link to="/">Hommies</Link></li>
+            <li><Link to="/">Hommiessss</Link></li>
             <li><Link to="/fetch-user">Fetch User</Link></li>
           </ul>
         </nav>
