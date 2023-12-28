@@ -1,19 +1,22 @@
 {
   "name": "demo",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
     "build": "webpack --config webpack.prod.js",
+    "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.0",
+    "axios": "^1.6.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "express": "^4.17.2",
+    "http-proxy-middleware": "^2.0.6",
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -38,5 +41,14 @@
     "webpack": "^5.89.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AWS03-CloudSchool/dev_yj_demoReact.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AWS03-CloudSchool/dev_yj_demoReact/issues"
+  },
+  "homepage": "https://github.com/AWS03-CloudSchool/dev_yj_demoReact#readme",
+  "description": ""
 }
